@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "Bmy0VwIKNBCJeUY1K+NSafFca9Ve+/3xIL1RW7O5yftoZMGedL/iM/zWnWjrHUop8cH/Bhve/2Wc/4I1skq/BQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Rodolfo\\Desktop\\PersonalProjects\\TheXReasonPodcast.Api\\TheXReasonPodcast.Infrastructure\\TheXReasonPodcast.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rodolfo\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
+    "C:\\Users\\Rodolfo\\.nuget\\packages\\mongodb.bson\\2.14.1\\mongodb.bson.2.14.1.nupkg.sha512",
+    "C:\\Users\\Rodolfo\\.nuget\\packages\\mongodb.driver\\2.14.1\\mongodb.driver.2.14.1.nupkg.sha512",
+    "C:\\Users\\Rodolfo\\.nuget\\packages\\mongodb.driver.core\\2.14.1\\mongodb.driver.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Rodolfo\\.nuget\\packages\\mongodb.libmongocrypt\\1.3.0\\mongodb.libmongocrypt.1.3.0.nupkg.sha512",
+    "C:\\Users\\Rodolfo\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
+    "C:\\Users\\Rodolfo\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\Rodolfo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
