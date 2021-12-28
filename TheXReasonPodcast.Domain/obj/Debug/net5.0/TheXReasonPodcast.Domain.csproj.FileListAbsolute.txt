@@ -1,0 +1,12 @@
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\bin\Debug\net5.0\TheXReasonPodcast.Domain.deps.json
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\bin\Debug\net5.0\TheXReasonPodcast.Domain.dll
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\bin\Debug\net5.0\ref\TheXReasonPodcast.Domain.dll
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\bin\Debug\net5.0\TheXReasonPodcast.Domain.pdb
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\obj\Debug\net5.0\TheXReasonPodcast.Domain.csproj.AssemblyReference.cache
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\obj\Debug\net5.0\TheXReasonPodcast.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\obj\Debug\net5.0\TheXReasonPodcast.Domain.AssemblyInfoInputs.cache
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\obj\Debug\net5.0\TheXReasonPodcast.Domain.AssemblyInfo.cs
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\obj\Debug\net5.0\TheXReasonPodcast.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\obj\Debug\net5.0\TheXReasonPodcast.Domain.dll
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\obj\Debug\net5.0\ref\TheXReasonPodcast.Domain.dll
+C:\Users\Rodolfo\Desktop\PersonalProjects\TheXReasonPodcast.Api\TheXReasonPodcast.Domain\obj\Debug\net5.0\TheXReasonPodcast.Domain.pdb

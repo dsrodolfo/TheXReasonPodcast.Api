@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using TheXReasonPodcast.Infrastructure.Configurations;
+using TheXReasonPodcast.Infrastructure.Repositories;
 
 namespace TheXReasonPodcast.Api
 {
@@ -23,6 +26,12 @@ namespace TheXReasonPodcast.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TheXReasonPodcast.Api", Version = "v1" });
             });
+
+            services.Configure<DatabaseConfig>(Configuration.GetSection(nameof(DatabaseConfig)));
+            services.AddSingleton<IDatabaseConfig>(sp => sp.GetRequiredService<IOptions<DatabaseConfig>>().Value);
+
+            services.AddSingleton<IEpisodeRepository, EpisodeRepository>();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

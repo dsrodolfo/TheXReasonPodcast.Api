@@ -1,29 +1,41 @@
-﻿using System;
+﻿using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using TheXReasonPodcast.Domain.Entities;
+using TheXReasonPodcast.Infrastructure.Configurations;
 
 namespace TheXReasonPodcast.Infrastructure.Repositories
 {
-    public class EpisodeRepository
+    public class EpisodeRepository : IEpisodeRepository
     {
-        public void InsertEpisode(EpisodeEntity episodeEntity)
+        private readonly IMongoCollection<EpisodeEntity> _episodes;
+
+        public EpisodeRepository(IDatabaseConfig databaseConfig)
         {
-            throw new NotImplementedException();
+            var client = new MongoClient(databaseConfig.ConnectionString);
+            var database = client.GetDatabase(databaseConfig.DatabaseName);
+
+            _episodes = database.GetCollection<EpisodeEntity>("episodes");
         }
 
-        public void UpdateEpisode(EpisodeEntity episodeEntity)
+        public void InsertEpisode(EpisodeEntity episodeEntity)
         {
-            throw new NotImplementedException();
+            _episodes.InsertOne(episodeEntity);
         }
 
         public IEnumerable<EpisodeEntity> GetAllEpisodes()
         {
-            throw new NotImplementedException();
+            return _episodes.Find(episode => true).ToList();           
         }
 
         public EpisodeEntity GetEpisode(int id)
         {
-            throw new NotImplementedException();
+            return _episodes.Find(ep => ep.Id == id).FirstOrDefault();
+        }
+
+        public void UpdateEpisode(EpisodeEntity episodeEntity)
+        {
+            _episodes.ReplaceOne(ep => ep.Id == episodeEntity.Id, episodeEntity);
         }
 
         public void DeleteEpisode(int id)
