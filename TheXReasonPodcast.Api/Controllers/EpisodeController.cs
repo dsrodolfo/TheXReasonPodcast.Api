@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using TheXReasonPodcast.Application.Models;
 using TheXReasonPodcast.Domain.Entities;
-using TheXReasonPodcast.Infrastructure.Repositories;
+using TheXReasonPodcast.Infrastructure.Interfaces;
 
 namespace TheXReasonPodcast.Api.Controllers
 {
@@ -10,10 +10,11 @@ namespace TheXReasonPodcast.Api.Controllers
     [ApiController]
     public class EpisodeController : ControllerBase
     {
+        private readonly IMapper _mapper;
         private readonly IEpisodeRepository _episodeRepository;
-
-        public EpisodeController(IEpisodeRepository episodeRepository)
+        public EpisodeController(IMapper mapper, IEpisodeRepository episodeRepository)
         {
+            _mapper = mapper;
             _episodeRepository = episodeRepository;
         }
 
@@ -22,15 +23,7 @@ namespace TheXReasonPodcast.Api.Controllers
         [Route("insert")]
         public IActionResult Post([FromBody] EpisodeRequest episodeRequest)
         {
-            var episodeEntity = new EpisodeEntity()
-            {
-                Id = episodeRequest.Id,
-                Title = episodeRequest.Title,
-                Guest = episodeRequest.Guest,
-                LiveLink = episodeRequest.LiveLink,
-                StartStreaming = null,
-                StopStreaming = null
-            };
+            var episodeEntity = _mapper.Map<EpisodeEntity>(episodeRequest);
 
             _episodeRepository.InsertEpisode(episodeEntity);
 
@@ -70,8 +63,8 @@ namespace TheXReasonPodcast.Api.Controllers
                 episodeEntity.Title = episodeRequest.Title;
                 episodeEntity.Guest = episodeRequest.Guest;
                 episodeEntity.LiveLink = episodeRequest.LiveLink;
-                episodeEntity.StartStreaming = null;
-                episodeEntity.StopStreaming = null;
+                episodeEntity.StartStreaming = episodeRequest.StartStreaming;
+                episodeEntity.StopStreaming = episodeRequest.StopStreaming;
 
                 _episodeRepository.UpdateEpisode(episodeEntity);
 
@@ -85,7 +78,16 @@ namespace TheXReasonPodcast.Api.Controllers
         [Route("delete/{id}")]
         public IActionResult Delete(int id)
         {
-            throw new NotImplementedException();
+            var episodeEntity = _episodeRepository.GetEpisode(id);
+
+            if (episodeEntity != null)
+            {
+                _episodeRepository.DeleteEpisode(id);
+
+                return NoContent();
+            }
+
+            return NotFound();
         }
     }
 }

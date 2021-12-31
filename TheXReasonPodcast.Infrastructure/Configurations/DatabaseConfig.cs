@@ -1,4 +1,6 @@
-﻿namespace TheXReasonPodcast.Infrastructure.Configurations
+﻿using TheXReasonPodcast.Infrastructure.Interfaces;
+
+namespace TheXReasonPodcast.Infrastructure.Configurations
 {
     public class DatabaseConfig : IDatabaseConfig
     {

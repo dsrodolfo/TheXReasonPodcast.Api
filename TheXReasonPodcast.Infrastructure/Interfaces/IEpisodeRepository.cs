@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TheXReasonPodcast.Domain.Entities;
 
-namespace TheXReasonPodcast.Infrastructure.Repositories
+namespace TheXReasonPodcast.Infrastructure.Interfaces
 {
     public interface IEpisodeRepository
     {

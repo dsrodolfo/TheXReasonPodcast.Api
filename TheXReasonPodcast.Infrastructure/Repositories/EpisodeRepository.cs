@@ -1,8 +1,7 @@
 ﻿using MongoDB.Driver;
-using System;
 using System.Collections.Generic;
 using TheXReasonPodcast.Domain.Entities;
-using TheXReasonPodcast.Infrastructure.Configurations;
+using TheXReasonPodcast.Infrastructure.Interfaces;
 
 namespace TheXReasonPodcast.Infrastructure.Repositories
 {
@@ -40,7 +39,7 @@ namespace TheXReasonPodcast.Infrastructure.Repositories
 
         public void DeleteEpisode(int id)
         {
-            throw new NotImplementedException();
+            _episodes.DeleteOne(ep => ep.Id == id);
         }
     }
 }
