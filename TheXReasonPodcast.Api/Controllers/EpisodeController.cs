@@ -1,8 +1,7 @@
-﻿using AutoMapper;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TheXReasonPodcast.Application.Interfaces;
 using TheXReasonPodcast.Application.Models;
-using TheXReasonPodcast.Domain.Entities;
-using TheXReasonPodcast.Infrastructure.Interfaces;
 
 namespace TheXReasonPodcast.Api.Controllers
 {
@@ -10,40 +9,40 @@ namespace TheXReasonPodcast.Api.Controllers
     [ApiController]
     public class EpisodeController : ControllerBase
     {
-        private readonly IMapper _mapper;
-        private readonly IEpisodeRepository _episodeRepository;
-        public EpisodeController(IMapper mapper, IEpisodeRepository episodeRepository)
+        private readonly IEpisodeService _episodeService;
+
+        public EpisodeController(IEpisodeService episodeService)
         {
-            _mapper = mapper;
-            _episodeRepository = episodeRepository;
+            _episodeService = episodeService;
         }
 
-        //TODO - Install AutoMapper
         [HttpPost]
         [Route("insert")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public IActionResult Post([FromBody] EpisodeRequest episodeRequest)
         {
-            var episodeEntity = _mapper.Map<EpisodeEntity>(episodeRequest);
+            var episodeId = _episodeService.InsertEpisode(episodeRequest);
 
-            _episodeRepository.InsertEpisode(episodeEntity);
-
-            return CreatedAtAction(nameof(Get), new { id = episodeEntity.Id }, episodeEntity);
+            return CreatedAtAction(nameof(Get), new { id = episodeId }, episodeRequest);
         }
 
         [HttpGet]
         [Route("getAll")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public IActionResult GetAll()
         {
-            var response = _episodeRepository.GetAllEpisodes();
+            var response = _episodeService.GetAllEpisodes();
 
             return Ok(response);
         }
 
         [HttpGet]
         [Route("get/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Get(int id)
         {
-            var response = _episodeRepository.GetEpisode(id);
+            var response = _episodeService.GetEpisode(id);
 
             IActionResult result = response != null ?
                 Ok(response) :
@@ -54,35 +53,28 @@ namespace TheXReasonPodcast.Api.Controllers
 
         [HttpPut]
         [Route("update")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Put([FromBody] EpisodeRequest episodeRequest)
         {
-            var episodeEntity = _episodeRepository.GetEpisode(episodeRequest.Id);
+            var isEpisodeUpdated = _episodeService.UpdateEpisode(episodeRequest);
 
-            if (episodeEntity != null)
-            {
-                episodeEntity.Title = episodeRequest.Title;
-                episodeEntity.Guest = episodeRequest.Guest;
-                episodeEntity.LiveLink = episodeRequest.LiveLink;
-                episodeEntity.StartStreaming = episodeRequest.StartStreaming;
-                episodeEntity.StopStreaming = episodeRequest.StopStreaming;
+            IActionResult result = isEpisodeUpdated ? NoContent() : NotFound();
 
-                _episodeRepository.UpdateEpisode(episodeEntity);
-
-                return NoContent();
-            }
-
-            return NotFound();
+            return result;
         }
 
         [HttpDelete]
         [Route("delete/{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult Delete(int id)
         {
-            var episodeEntity = _episodeRepository.GetEpisode(id);
+            var episodeEntity = _episodeService.GetEpisode(id);
 
             if (episodeEntity != null)
             {
-                _episodeRepository.DeleteEpisode(id);
+                _episodeService.DeleteEpisode(id);
 
                 return NoContent();
             }

@@ -19,10 +19,12 @@ namespace TheXReasonPodcast.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcServices()
+                    .AddJwtServices(Configuration)
                     .AddSwaggerServices()
-                    .AddAutoMapperServices()
+                    .AddAutoMapperServices()                                   
                     .AddDatabaseConfigServices(Configuration)
-                    .AddRepositoryServices();
+                    .AddRepositoryServices()
+                    .AddServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -35,6 +37,7 @@ namespace TheXReasonPodcast.Api
             }
 
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
