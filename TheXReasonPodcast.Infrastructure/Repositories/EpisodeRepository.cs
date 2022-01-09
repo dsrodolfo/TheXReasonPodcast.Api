@@ -27,7 +27,7 @@ namespace TheXReasonPodcast.Infrastructure.Repositories
             return _episodes.Find(episode => true).ToList();           
         }
 
-        public EpisodeEntity GetEpisode(int id)
+        public EpisodeEntity GetEpisode(string id)
         {
             return _episodes.Find(ep => ep.Id == id).FirstOrDefault();
         }
@@ -37,7 +37,7 @@ namespace TheXReasonPodcast.Infrastructure.Repositories
             _episodes.ReplaceOne(ep => ep.Id == episodeEntity.Id, episodeEntity);
         }
 
-        public void DeleteEpisode(int id)
+        public void DeleteEpisode(string id)
         {
             _episodes.DeleteOne(ep => ep.Id == id);
         }

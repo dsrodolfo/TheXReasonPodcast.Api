@@ -5,9 +5,9 @@ namespace TheXReasonPodcast.Infrastructure.Interfaces
 {
     public interface IEpisodeRepository
     {
-        void DeleteEpisode(int id);
+        void DeleteEpisode(string id);
         IEnumerable<EpisodeEntity> GetAllEpisodes();
-        EpisodeEntity GetEpisode(int id);
+        EpisodeEntity GetEpisode(string id);
         void InsertEpisode(EpisodeEntity episodeEntity);
         void UpdateEpisode(EpisodeEntity episodeEntity);
     }

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheXReasonPodcast.Application.Interfaces;
-using TheXReasonPodcast.Application.Models;
+using TheXReasonPodcast.Application.Models.Requests;
 
 namespace TheXReasonPodcast.Api.Controllers
 {

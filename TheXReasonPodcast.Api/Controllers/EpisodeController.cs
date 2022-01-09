@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheXReasonPodcast.Application.Interfaces;
-using TheXReasonPodcast.Application.Models;
+using TheXReasonPodcast.Application.Models.Requests;
 
 namespace TheXReasonPodcast.Api.Controllers
 {
@@ -40,7 +40,7 @@ namespace TheXReasonPodcast.Api.Controllers
         [Route("get/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Get(int id)
+        public IActionResult Get(string id)
         {
             var response = _episodeService.GetEpisode(id);
 
@@ -55,9 +55,9 @@ namespace TheXReasonPodcast.Api.Controllers
         [Route("update")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Put([FromBody] EpisodeRequest episodeRequest)
+        public IActionResult Put([FromBody] EpisodeUpdateRequest episodeUpdateRequest)
         {
-            var isEpisodeUpdated = _episodeService.UpdateEpisode(episodeRequest);
+            var isEpisodeUpdated = _episodeService.UpdateEpisode(episodeUpdateRequest);
 
             IActionResult result = isEpisodeUpdated ? NoContent() : NotFound();
 
@@ -68,7 +68,7 @@ namespace TheXReasonPodcast.Api.Controllers
         [Route("delete/{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(string id)
         {
             var episodeEntity = _episodeService.GetEpisode(id);
 

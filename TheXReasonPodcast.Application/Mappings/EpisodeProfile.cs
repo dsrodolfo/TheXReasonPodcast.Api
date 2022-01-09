@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using TheXReasonPodcast.Application.Models;
+using TheXReasonPodcast.Application.Models.Requests;
 using TheXReasonPodcast.Domain.Entities;
 
 namespace TheXReasonPodcast.Application.Mappings
@@ -9,6 +9,7 @@ namespace TheXReasonPodcast.Application.Mappings
         public EpisodeProfile()
         {
             CreateMap<EpisodeRequest, EpisodeEntity>().ReverseMap();
+            CreateMap<EpisodeUpdateRequest, EpisodeEntity>().ReverseMap();
         }
     }
 }

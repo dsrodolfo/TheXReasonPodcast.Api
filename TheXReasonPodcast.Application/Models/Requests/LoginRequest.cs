@@ -1,4 +1,4 @@
-﻿namespace TheXReasonPodcast.Application.Models
+﻿namespace TheXReasonPodcast.Application.Models.Requests
 {
     public class LoginRequest
     {

@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
-using TheXReasonPodcast.Application.Models;
+using TheXReasonPodcast.Application.Models.Requests;
 using TheXReasonPodcast.Domain.Entities;
 
 namespace TheXReasonPodcast.Application.Interfaces
 {
     public interface IEpisodeService
     {
-        void DeleteEpisode(int id);
+        void DeleteEpisode(string id);
         IEnumerable<EpisodeEntity> GetAllEpisodes();
-        EpisodeEntity GetEpisode(int id);
-        int InsertEpisode(EpisodeRequest episodeRequest);
-        bool UpdateEpisode(EpisodeRequest episodeRequest);
+        EpisodeEntity GetEpisode(string id);
+        string InsertEpisode(EpisodeRequest episodeRequest);
+        bool UpdateEpisode(EpisodeUpdateRequest episodeUpdateRequest);
     }
 }
