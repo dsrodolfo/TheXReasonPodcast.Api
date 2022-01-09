@@ -1,5 +1,7 @@
 <h1 align="center">TheXReasonPodcast.Api</h1>
 
+![undraw_Podcast_re_wr88](https://user-images.githubusercontent.com/25781203/148664371-66ba2744-c179-40af-b2a9-5a25d36bc10b.png)
+
 ## Endpoints
 The API has 5 endpoints:
 
