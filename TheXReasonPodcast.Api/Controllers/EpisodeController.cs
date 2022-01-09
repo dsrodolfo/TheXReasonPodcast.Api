@@ -5,8 +5,8 @@ using TheXReasonPodcast.Application.Models.Requests;
 
 namespace TheXReasonPodcast.Api.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class EpisodeController : ControllerBase
     {
         private readonly IEpisodeService _episodeService;
@@ -43,10 +43,7 @@ namespace TheXReasonPodcast.Api.Controllers
         public IActionResult Get(string id)
         {
             var response = _episodeService.GetEpisode(id);
-
-            IActionResult result = response != null ?
-                Ok(response) :
-                NotFound();
+            IActionResult result = response != null ? Ok(response) : NotFound();
 
             return result;
         }
@@ -58,7 +55,6 @@ namespace TheXReasonPodcast.Api.Controllers
         public IActionResult Put([FromBody] EpisodeUpdateRequest episodeUpdateRequest)
         {
             var isEpisodeUpdated = _episodeService.UpdateEpisode(episodeUpdateRequest);
-
             IActionResult result = isEpisodeUpdated ? NoContent() : NotFound();
 
             return result;

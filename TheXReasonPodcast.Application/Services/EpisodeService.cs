@@ -60,7 +60,7 @@ namespace TheXReasonPodcast.Application.Services
 
         public void DeleteEpisode(string id)
         {
-            throw new System.NotImplementedException();
+            _episodeRepository.DeleteEpisode(id);
         }
     }
 }

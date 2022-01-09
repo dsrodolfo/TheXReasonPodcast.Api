@@ -31,7 +31,7 @@ namespace TheXReasonPodcast.Application.Installers
                 };
             });
 
-            services.AddSingleton<IJwtService>(new JwtService(key));
+            services.AddSingleton<IAuthenticationService>(new AuthenticationService(key));
 
             return services;
         }
