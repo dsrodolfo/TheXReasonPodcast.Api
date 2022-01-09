@@ -5,7 +5,7 @@ using TheXReasonPodcast.Application.Models;
 
 namespace TheXReasonPodcast.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class EpisodeController : ControllerBase
     {

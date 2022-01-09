@@ -8,7 +8,7 @@ namespace TheXReasonPodcast.Api.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class AccountController : ControllerBase
     {
         private readonly IJwtService _jwtAuthManager;
