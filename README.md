@@ -1,4 +1,4 @@
-<h1 align="center">TheXReasonPodcast.Api</h1>
+<h1 align="center">The X ReasonPodcast API</h1>
 
 ![undraw_Podcast_re_wr88](https://user-images.githubusercontent.com/25781203/148664371-66ba2744-c179-40af-b2a9-5a25d36bc10b.png)
 
