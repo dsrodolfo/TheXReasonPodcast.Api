@@ -5,11 +5,11 @@
 ## Endpoints
 The API has 5 endpoints:
 
-+ Episode/insert: Add a new episode.
-+ Episode/getAll: Return a list of all episodes.
-+ Episode/get/{id}: Return an episode by id.
-+ Episode/update: Update episode information.
-+ Episode/delete/{id}: Delete an episode by id.
++ Episode/insert: Adds a new episode.
++ Episode/getAll: Returns a list of all episodes.
++ Episode/get/{id}: Returns an episode by id.
++ Episode/update: Updates episode information.
++ Episode/delete/{id}: Removes an episode by id.
 
 ## Tecnologies Used
 
